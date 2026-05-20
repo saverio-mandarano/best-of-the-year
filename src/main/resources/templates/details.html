@@ -1,13 +1,45 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><Details></Details></title>
+    <!-- head -->
+    <th:block th:replace="~{ fragments/fragments :: head}"></th:block>
+    <title>Details</title>
   </head>
-  <body>
-    <h1>Item Details:</h1>
-    <p>Id: <span th:text="${id}"> </span></p>
-    <p>Title: <span th:text="${item.title}"> </span></p>
+  <body class="bg-dark text-white">
+    <header class="container p-5">
+      <h1>Item Details:</h1>
+    </header>
+    <main class="container px-5">
+      <div class="row">
+        <div class="col-12" th:if="${item != null}">
+          <h2 th:text="|Dettagli per: ${item.title}|"></h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            ultricies odio et bibendum ornare. Etiam cursus dictum nisl, a
+            molestie neque bibendum sed. Maecenas vulputate est in urna ornare
+            dignissim. Class aptent taciti sociosqu ad litora torquent per
+            conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Nullam ultricies odio et bibendum
+            ornare. Etiam cursus dictum nisl, a molestie neque bibendum sed.
+            Maecenas vulputate est in urna ornare dignissim. Class aptent taciti
+            sociosqu ad litora torquent per conubia nostra, per inceptos
+            himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nullam ultricies odio et bibendum ornare. Etiam cursus dictum nisl,
+            a molestie neque bibendum sed. Maecenas vulputate est in urna ornare
+            dignissim. Class aptent taciti sociosqu ad litora torquent per
+            conubia nostra, per inceptos himenaeos.
+          </p>
+        </div>
+        <div class="col-12" th:unless="${item != null}">
+          <h2
+            th:text="|No movie found with id: ${id}|"
+            class="alert-warning"
+          ></h2>
+        </div>
+      </div>
+    </main>
+
+    <!-- script -->
+    <th:block th:replace="~{ fragments/fragments :: scripts}"></th:block>
   </body>
 </html>

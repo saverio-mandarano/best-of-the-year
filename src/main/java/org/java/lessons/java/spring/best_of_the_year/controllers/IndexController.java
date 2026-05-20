@@ -37,6 +37,7 @@ public class IndexController {
         }
 
         model.addAttribute("movies", titles);
+        model.addAttribute("title", "Movie");
 
         return "movies";
     }
@@ -48,6 +49,7 @@ public class IndexController {
         for (Movie movie : getBestMovies()) {
             if (movie.getId() == movieId) {
                 movieFound = movie;
+                break;
             }
         }
 
@@ -64,6 +66,7 @@ public class IndexController {
         for (Song song : getBestSongs()) {
             if (song.getId() == songId) {
                 songFound = song;
+                break;
             }
         }
 
