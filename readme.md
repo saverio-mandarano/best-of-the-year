@@ -32,3 +32,14 @@ Utilizzare i due metodi getBest… per recuperare i film e le canzoni.
 Creare i rispettivi template Thymeleaf.
 
 ---
+
+### Step 3
+
+Creare due metodi:
+
+- “/movies/{id}”
+- “/songs/{id}”
+
+che dato il parametro id passato tramite il path, mostri in pagina il titolo relativo al film/canzone.
+
+Testare chiamando dal browser i diversi url.
