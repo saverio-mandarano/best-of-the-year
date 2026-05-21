@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- head -->
+    <th:block th:replace="~{ fragments/fragments :: head}"></th:block>
+    <title>[[${title}]]</title>
+  </head>
+  <body>
+    <div class="container p-5">
+      <header></header>
+      <main>
+        <h1 class="text-center py-3">Best [[${title}]] of the year</h1>
+        <div class="row justify-content-center mt-5">
+          <div class="col-6">
+            <div class="list-group">
+              <a
+                href="#"
+                class="list-group-item list-group-item-action"
+                aria-current="true"
+              >
+                The first link item
+              </a>
+              <a href="#" class="list-group-item list-group-item-action"
+                >A second link item</a
+              >
+              <a href="#" class="list-group-item list-group-item-action"
+                >A third link item</a
+              >
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- script -->
+    <th:block th:replace="~{ fragments/fragments :: scripts}"></th:block>
+  </body>
+</html>

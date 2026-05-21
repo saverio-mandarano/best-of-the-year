@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.thymeleaf.org">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- head -->
+    <th:block th:replace="~{ fragments/fragments :: head}"></th:block>
     <title>[[${title}]]</title>
   </head>
   <body>
     <h1 th:text="${title}">:</h1>
-    <p th:text="${movies}"></p>
+    <p th:text="${names}"></p>
   </body>
 </html>
