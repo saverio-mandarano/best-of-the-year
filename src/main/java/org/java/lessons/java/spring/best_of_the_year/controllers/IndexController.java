@@ -20,28 +20,71 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/movies")
-    public String movies(Model model) {
+    // movies e songs come stringa:
+    @GetMapping("/string/movies")
+    public String moviesAString(Model model) {
 
-        String titles = "";
+        String names = "";
         int i = 0;
 
         for (Movie movie : getBestMovies()) {
-            titles += movie.getTitle();
+            names += movie.getTitle();
 
             if (i < getBestMovies().size() - 1) {
-                titles += ", ";
+                names += ", ";
             }
 
             i++;
         }
 
-        model.addAttribute("movies", titles);
-        model.addAttribute("title", "Movie");
+        model.addAttribute("names", names);
+        model.addAttribute("title", "Movies");
 
-        return "movies";
+        return "listAsString";
     }
 
+    @GetMapping("/string/songs")
+    public String songsAString(Model model) {
+
+        String names = "";
+        int i = 0;
+
+        for (Song song : getBestSongs()) {
+            names += song.getTitle();
+
+            if (i < getBestSongs().size() - 1) {
+                names += " ~ ";
+            }
+
+            i++;
+        }
+
+        model.addAttribute("title", "Songs");
+        model.addAttribute("names", names);
+
+        return "listAsString";
+    }
+
+    // movies e songs come lista:
+    @GetMapping("/movies")
+    public String movies(Model model) {
+
+        model.addAttribute("title", "Movies");
+        model.addAttribute("list", getBestMovies());
+
+        return "list";
+    }
+
+    @GetMapping("/songs")
+    public String songs(Model model) {
+
+        model.addAttribute("title", "Songs");
+        model.addAttribute("list", getBestSongs());
+
+        return "list";
+    }
+
+    // movies e songs rotta di dettaglio
     @GetMapping("/movies/{id}")
     public String movieDetail(Model model, @PathVariable("id") Integer movieId) {
         Movie movieFound = null;
@@ -76,27 +119,7 @@ public class IndexController {
         return "details";
     }
 
-    @GetMapping("/songs")
-    public String songs(Model model) {
-
-        String songs = "";
-        int i = 0;
-
-        for (Song song : getBestSongs()) {
-            songs += song.getTitle();
-
-            if (i < getBestSongs().size() - 1) {
-                songs += ", ";
-            }
-
-            i++;
-        }
-
-        model.addAttribute("songs", songs);
-
-        return "songs";
-    }
-
+    // metodi private che restituiscono lista di movies e di songs:
     private List<Movie> getBestMovies() {
         List<Movie> movies = new ArrayList<>();
         movies.add(new Movie(1, "Il Padrino"));
