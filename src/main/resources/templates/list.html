@@ -5,25 +5,25 @@
     <th:block th:replace="~{ fragments/fragments :: head}"></th:block>
     <title>[[${title}]]</title>
   </head>
-  <body>
-    <div class="container p-5">
-      <header></header>
-      <main>
-        <h1 class="text-center py-3">Best [[${title}]] of the year</h1>
-        <div class="row justify-content-center mt-5">
-          <div class="col-6">
-            <div class="list-group" th:if="${list.size() > 0}">
-              <a
-                class="list-group-item text-decoration-none text-dark"
-                th:href="@{'/' + ${title.toLowerCase()} + '/' + ${item.id}}"
-                th:text="${item.title}"
-                th:each="item : ${list}"
-              ></a>
-            </div>
+  <body class="container p-5">
+    <header>
+      <nav th:replace="~{ fragments/navbar :: nav}"></nav>
+    </header>
+    <main>
+      <h1 class="text-center py-3">Best [[${title}]] of the year</h1>
+      <div class="row justify-content-center mt-5">
+        <div class="col-6">
+          <div class="list-group" th:if="${list.size() > 0}">
+            <a
+              class="list-group-item text-decoration-none text-dark"
+              th:href="@{'/' + ${title.toLowerCase()} + '/' + ${item.id}}"
+              th:text="${item.title}"
+              th:each="item : ${list}"
+            ></a>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
 
     <!-- script -->
     <th:block th:replace="~{ fragments/fragments :: scripts}"></th:block>

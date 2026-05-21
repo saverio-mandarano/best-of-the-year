@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+  <body>
+    <nav
+      th:fragment="nav"
+      class="navbar"
+      style="background-color: #e3f2fd"
+      data-bs-theme="light"
+    >
+      <div class="container-fluid d-flex justify-content-between">
+        <a class="navbar-brand btn btn-primary" th:href="@{'/songs'}"
+          >Best Songs</a
+        >
+        <a class="navbar-brand btn btn-primary" th:href="@{'/movies'}"
+          >Best Movies</a
+        >
+      </div>
+    </nav>
+  </body>
+</html>
